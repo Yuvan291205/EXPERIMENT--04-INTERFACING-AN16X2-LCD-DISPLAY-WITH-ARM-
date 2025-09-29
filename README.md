@@ -195,40 +195,105 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
   ******************************************************************************
   */
 /* USER CODE END Header */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "lcd.h"
-Lcd_PortType ports[]={GPIOA,GPIOA,GPIOA,GPIOA};
-Lcd_PinType Pins[]={GPIO_PIN_3,GPIO_PIN_2,GPIO_PIN_1,GPIO_PIN_0};
-Lcd_HandleTypeDef lcd;
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-void lcd_display(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
 int main(void)
 {
-	HAL_Init();
-	SystemClock_Config();
-	MX_GPIO_Init();
+  /* USER CODE BEGIN 1 */
 
-	lcd=Lcd_create(ports,Pins,GPIOB,GPIO_PIN_0,GPIOB,GPIO_PIN_1,LCD_4_BIT_MODE);
-	while (1)
-	{
-		lcd_display();
+  /* USER CODE END 1 */
 
-	}
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  MX_GPIO_Init();
+      Lcd_PortType ports[] = { GPIOA, GPIOA, GPIOA, GPIOA };
+         Lcd_PinType pins[] = {GPIO_PIN_3, GPIO_PIN_2, GPIO_PIN_1, GPIO_PIN_0};
+         Lcd_HandleTypeDef lcd;
+         lcd = Lcd_create(ports, pins, GPIOB, GPIO_PIN_0, GPIOB, GPIO_PIN_1, LCD_4_BIT_MODE);
+         Lcd_cursor(&lcd, 0,1);
+         Lcd_string(&lcd, "YUVAN M");
+         Lcd_cursor(&lcd, 1,1);
+         Lcd_string(&lcd, "212223240188");
+         HAL_Delay(500);
+
+
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
 }
-void lcd_display()
-{
-	Lcd_cursor(&lcd,0,1);
-	Lcd_string(&lcd,"Vasavi \n");
-	Lcd_cursor(&lcd,1,1);
-	Lcd_string(&lcd,"212223040030");
-}
 
-
-
-
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -336,17 +401,20 @@ void assert_failed(uint8_t *file, uint32_t line)
 #endif /* USE_FULL_ASSERT */
 
 /************************ (C) COPYRIGHT STMicroelectronics ****END OF FILE*/
+
 ```
 
 
 
 ## Output screen shots of proteus  :
-<img width="909" height="818" alt="image" src="https://github.com/user-attachments/assets/1d98a236-050d-41a1-9729-b8c13ab8776c" />
+<img width="1221" height="817" alt="Screenshot 2025-09-29 135312" src="https://github.com/user-attachments/assets/ba0e796e-0b63-40a6-8c44-0b077179f27a" />
+
 
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
 
-<img width="662" height="604" alt="image" src="https://github.com/user-attachments/assets/e7d79b73-789f-43af-9dff-9c459eabc906" />
+
+[exp4.PDF](https://github.com/user-attachments/files/22592638/exp4.PDF)
 
 
  
